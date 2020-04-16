@@ -1,0 +1,80 @@
+extends layout
+
+block content
+
+	div(class="container")
+		h1 .plan
+		div(class="nav")
+			if user
+				a(href="#")= user
+			else
+				a(href="#" class="openModal" id="openAccountModal" modal="accountModal") Account
+
+			a(href="#" class="openModal" id="openOptionsModal" modal="optionsModal") Options
+			a(href="#" class="openModal" id="openHelpModal" modal="helpModal") Help
+			a(href="#" class="lightbulb")
+
+		div(class="options clear")
+			a(href="#" title="Get a sharable link to this plan file") Share this plan
+			br
+			a(href="#" title="Download this plan as a text file") Download this plan
+
+		form
+			fieldset
+				legend= date+"_plan"
+				textarea(rows="15")= todays_plan
+				
+		table
+			tr
+				td(class="pastcol")
+					h2 
+						a(href="#" title="Download a zip of this week's plans") This Week
+					ul
+						li
+							a(href="#" title="Load this plan") Mon_2020_04_13_plan
+
+				td(class="pastcol")
+					h2 
+						a(href="#" title="Download a zip of this week's plans") This Month
+					ul
+						li
+							a(href="#" title="Load this plan") Mon_2020_04_13_plan
+
+		div(id="accountModal" class="modal")
+			div(class="modal-content")
+				div(class="modal-body")
+					span(class="close") &times;
+					table
+						tr
+							td(class="logincol")
+								h3 Create an Account
+								form
+									label E-mail Address
+									input(type="text" id="create_email" name="create_email")
+									label Password
+									input(type="password" id="create_password" name="create_password")
+									label Confirm Password
+									input(type="password" id="confirm_password" name="confirm_password")
+									input(type="submit" value="Register")
+							td(class="logincol")
+								h3 Login
+								form(action="auth" method="POST")
+									label E-mail Address
+									input(type="text" id="login_email" name="login_email")
+									label Password
+									input(type="password" id="login_password" name="login_password")
+									br
+									a(href="#" style="font-size: .8em;") &raquo;Forgot password
+									input(type="submit" value="Login")
+
+		div(id="optionsModal" class="modal")
+			div(class="modal-content")
+				div(class="modal-body")
+					span(class="close") &times;
+					p Options Modal
+
+		div(id="helpModal" class="modal")
+			div(class="modal-content")
+				div(class="modal-body")
+					span(class="close") &times;
+					p Help Modal									
