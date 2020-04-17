@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
 	var date = new Date();
 
 	var weekday = new Array(7);
@@ -28,28 +28,20 @@ router.get('/', function(req, res, next) {
 	var today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
 	var day = weekday[date.getDay()];
 	var full_day_date = day+"_"+today;
-	var todays_plan = "";
-	if (req.session.loggedin) {
-  	// get the todays plan if there is one
-  	var q = 'SELECT plan FROM plans WHERE user_id='+req.session.user_id+' AND created_at = CURDATE()';
-		connection.query(q, function(error, results, fields) {
-			if (results.length > 0) {
-				todays_plan = results[0].plan;
-				console.log(todays_plan);
-				res.render('index', { user: req.session.email, date: full_day_date, todays_plan: todays_plan });
-			} else {
-				console.log("no plan today");
-				res.render('index', { user: req.session.email, date: full_day_date });
-			}
-		});
-
-		
-		//get the last weeks worth
-		//get the last month
-		
-	} else {
-		console.log('not logged in');
-		res.render('index', { date: full_day_date });
+	
+	
+	try {
+		if (req.session.loggedin) {
+			var todays_plan;
+			todays_plan = await getTodaysPlan(req.session.user_id);
+			console.log(todays_plan);
+			
+  			res.render('index', { user: req.session.email, date: full_day_date, todays_plan: todays_plan });	
+		} else {
+			res.render('index', { date: full_day_date });
+		}
+	} catch (e) {
+		next(e)
 	}
 });
 
@@ -62,11 +54,10 @@ router.post('/auth', function(req, res) {
 				req.session.loggedin = true;
 				req.session.email = email;
 				req.session.user_id = results[0].id;
-				
 				res.redirect('/');
 			} else {
 				res.send('Incorrect Username and/or Password!');
-			}			
+			}
 			res.end();
 		});
 	} else {
@@ -75,4 +66,56 @@ router.post('/auth', function(req, res) {
 	}
 });
 
+
+// async function getTodaysPlan(uid, callback) {
+// 	var plan;
+// 	var q = 'SELECT plan FROM plans WHERE user_id='+uid+' AND created_at = CURDATE()';
+// 	connection.query(q, function(error, results) {
+// 		if (error) {
+// 			callback(err,null);
+// 		} else {
+// 			callback(null,results[0].plan);
+// 		}
+// 	});
+// }
+
+var stuff;
+async var getTodaysPlan = function(uid, callback) {
+	var q = 'SELECT plan FROM plans WHERE user_id='+uid+' AND created_at = CURDATE()';
+	mysql.connection.query(q, function(err, res, fields) {
+		if (err) {
+			return callback(err);
+		}
+		if(res.length) {
+			stuff = result[0].plan;
+		}
+	   callback(null, stuff);
+	});
+);
+	
+	
+
+// getInformationFromDB(function (err, result) {
+// 	  if (err) console.log("Database error!");
+// 	  else console.log(result);
+// });
+
+// async function getTodaysPlan(uid) {
+// 	var q = 'SELECT plan FROM plans WHERE user_id='+uid+' AND created_at = CURDATE()';
+// 		return new Promise((resolve, reject) => {q, (err) => {
+// 			if (err) {
+// 				return reject(err);
+// 			}
+// 			return resolve();
+// 		}
+// 	});
+// }
+
+// function getThisWeeksPlans(uid) {
+
+// }
+
+// function getThisMonthsPlans(uid){
+
+// }
 module.exports = router;

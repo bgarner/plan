@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mysql = require('mysql');
+const { Pool, Client } = require('pg');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
@@ -49,13 +49,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'plan'
-});
-
-connection.connect();
+const client = new Client();
+await client.connect();
 
 module.exports = app;
