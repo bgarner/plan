@@ -1,0 +1,234 @@
+body{
+	font-family: monospace;
+	font-size: 16px;
+	padding: 20px;
+}
+
+body a{
+	text-decoration: none;
+}
+
+body a:hover{
+	text-decoration: underline;
+}
+
+body.dark, body.dark *{
+	color: #ddd;
+	background-color: #333;
+}
+
+body.dark textarea {
+	color: #aaa;
+}
+
+fieldset{
+	border: 1px solid #ccc;
+	font-weight: 100;
+}
+body.dark fieldset{
+	border: 1px solid #666;
+}
+
+legend {
+	color: #aaa !important;
+}
+
+body, body *{
+	color: #333;
+	background-color: #ddd;
+}
+
+.container{
+	width: 600px;
+	margin: 0 auto;
+}
+h1{
+	float: left;
+	font-weight: normal;
+}
+h2{
+	font-weight: normal;
+	font-size: 1em;
+}
+.nav{
+	float: right;
+	position: relative;
+	top: 30px;
+	font-size: .8em;
+}
+.nav a{
+	padding-right: 10px;
+}
+
+.options{
+	text-align: right;
+	font-size: .6em; 
+}
+
+a.lightbulb{
+	/*background: no-repeat top left url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2MCA4MCIgaWQ9IkxheWVyXzEiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE2MCA4MCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGc+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjkiIHg9Ijc1IiB5PSI2MSIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSI4MiIgeT0iNTYiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iMTUiIHg9IjcyIiB5PSI0NiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSI3MiIgeT0iNTYiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iNSIgeD0iODIiIHk9IjUxIi8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9IjcyIiB5PSI1MSIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjEwIiB3aWR0aD0iNSIgeD0iODciIHk9IjM2Ii8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iMTUiIHdpZHRoPSI1IiB4PSI3NyIgeT0iMzEiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iMTUiIHg9IjcyIiB5PSIyNiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjEwIiB3aWR0aD0iNSIgeD0iNjciIHk9IjM2Ii8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjE1IiB4PSI3MiIgeT0iMTEiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSIxNSIgd2lkdGg9IjUiIHg9IjkyIiB5PSIyMSIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjE1IiB3aWR0aD0iNSIgeD0iNjIiIHk9IjIxIi8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9Ijg3IiB5PSIxNiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSI2NyIgeT0iMTYiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iNSIgeD0iNTIiIHk9IjExIi8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9IjQ3IiB5PSI2Ii8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9IjUyIiB5PSI0MiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSI0NyIgeT0iNDciLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iNSIgeD0iNDIiIHk9IjI2Ii8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9IjM3IiB5PSIyNiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSIxMDIiIHk9IjQyIi8+PHJlY3QgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iNSIgd2lkdGg9IjUiIHg9IjEwNyIgeT0iNDciLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iNSIgeD0iMTAyIiB5PSIxMSIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSIxMDciIHk9IjYiLz48cmVjdCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaGVpZ2h0PSI1IiB3aWR0aD0iNSIgeD0iMTEyIiB5PSIyNiIvPjxyZWN0IGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiBoZWlnaHQ9IjUiIHdpZHRoPSI1IiB4PSIxMTciIHk9IjI2Ii8+PC9nPjwvc3ZnPg==');*/
+	background: no-repeat top center url('/images/light.png');
+	background-size: contain;
+	display: inline-block;
+	height: 21px;
+	width: 28px;
+	position: relative;
+	top: 3px;
+	padding-right: 0px;
+}
+
+body.dark a.lightbulb{
+	background: no-repeat top center url('/images/dark.png');
+}
+
+textarea:focus {
+	outline: 1px dotted #ccc;
+}
+
+body.dark textarea:focus {
+	outline: 1px dotted #666;
+}
+
+form{clear: both;}
+
+textarea{
+	font-family: monospace;
+	font-size: 1em;
+	line-height: 1.3em;
+	resize: none;
+	clear: both;
+	width: 97%;
+	/*border-color: #111;*/
+	padding: 10px;
+	border: none;
+	color: #666;
+}
+
+.pastcol, .logincol{
+	width: 50%;
+	padding: 10px;
+	vertical-align: top;
+}
+table{
+	width: 100%;
+}
+ul{padding: 0; margin: 0; list-style: none;}
+ul li{
+	font-size: .8em;
+	padding: 2px 0px;
+}
+.clear{
+	clear:both;
+	overflow: auto;
+}
+
+.clear::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+pre{
+	border: thin solid lime;
+	height: 300px;
+}
+
+
+hr{
+	border-top: 1px dotted #ccc;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+}
+body.dark hr{
+	border-top: 1px dotted #666;
+}
+
+.save_status{
+	font-size: .5em;
+	text-align: right;
+}
+
+/* forms =====================================================================*/
+label{
+	font-size: .8em;
+	display: block;
+}
+input[type="text"], input[type="password"], input[type="email"]{
+	padding: 5px 10px;
+	margin: 3px;
+	font-size: 1em;
+	background-color: #fff;
+	border: none;
+}
+input[type="submit"]{
+	display: block;
+}
+
+
+
+/*modal stuff  ===============================================================*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/* Modal Body */
+.modal-body {padding: 0px 16px;
+}
+
+
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
