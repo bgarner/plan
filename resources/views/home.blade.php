@@ -34,7 +34,7 @@
         <div class="today">
             <p style="float: left; font-weight: bold;" id="today">{{ $today }}</p> 
             <div style="float: right; font-size: .6em;">
-                <a href="#" title="Get a sharable link to this plan file">Share this plan</a><br />
+                <a href="#" class="openModal" id="openShareModal" modal="shareModal" title="Get a sharable link to this plan file">Share this plan</a><br />
                 <a href="#" title="Download this plan as a text file">Download this plan</a>
             </div>
         </div>
@@ -57,9 +57,9 @@
     <h2>History (last 30 plans)</h2>
     <ul>
         @isset($plan->todays->plan)
-        <li><a href="" id="todays_plan_link" class="load-plan" plan-date="{{ $today }}" plan-id="{{ $plan->todays->plan_id }}">{{ $today }}</a></li> 
+        <li><a href="#" id="todays_plan_link" class="load-plan" plan-date="{{ $today }}" plan-id="{{ $plan->todays->plan_id }}">{{ $today }}</a></li> 
         @else
-        <li><a href="" id="todays_plan_link" class="load-plan" plan-date="{{ $today }}" plan-id="">{{ $today }}</a></li> 
+        <li><a href="#" id="todays_plan_link" class="load-plan" plan-date="{{ $today }}" plan-id="">{{ $today }}</a></li> 
         @endisset
     @foreach($plan->prev_plans as $pp)
         <li><a href="#" class="load-plan" plan-date={{ $pp->plan_title }} plan-id="{{ $pp->plan_id }}">{{ $pp->plan_title }}</a></li>
@@ -136,6 +136,22 @@
             </div>
         </div>
     </div>
+
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close"> &times;</span>
+                <br />
+                <h5>Share</h5>
+                <p style="font-size: .8em;">
+                    Here is your shareable link to this plan:
+                </p>
+                <p>
+                    <a href="" target="_blank" id="sharelink"></a>
+                </p>
+            </div>
+        </div>
+    </div>    
 
     <div id="helpModal" class="modal">
         <div class="modal-content">

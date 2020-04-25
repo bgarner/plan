@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index' );
 Route::get('/{plan_id}', 'SingleviewController@index');
+
+Route::get('/download/{plan_id}', 'DownloadController@single');

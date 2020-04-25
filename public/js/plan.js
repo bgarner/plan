@@ -6,6 +6,15 @@ window.onload = function() {
   });    
 };
 
+$('a#openShareModal').click(function() {
+	var link_id = $("#current_plan_id").val();
+	var link = window.location.protocol + "//" + window.location.host + "/" + link_id;
+	$("#sharelink").text(link);
+	$("#sharelink").attr("href", link)
+	
+});
+
+
 $('a.load-plan').click(function() {
 	$('a.load-plan').css("font-weight", "normal");
 	$(this).css("font-weight", "bold");
@@ -42,8 +51,6 @@ const updatePref = (user_id, darkmode) => {
 	  }
 	})
 	.then(function (response) {
-	  //set the button to now to the opposite
-		console.log("preference set to: " + darkmode);
 	})
 	.catch(function (error) {
 	  console.log(error);
@@ -87,7 +94,7 @@ const fetchPlan = (plan_id, plan_date) => {
 	  console.log(error);
 	})
 	.then(function () {
-	  console.log("fetched the plan: "+ plan_id +" ...done!");
+	  // console.log("fetched the plan: "+ plan_id +" ...done!");
 	})
 };
 
