@@ -9,17 +9,18 @@ use DB;
 class Plan extends Model
 {
 		protected $table = 'plans';
+		protected $fillable = ['id', 'plan_id', 'user_id', 'created_at', 'updated_at'];
 
     function getTodaysPlan($user_id)
     {
     	$plan = Plan::where('user_id', $user_id)
     						->whereRaw('Date(created_at) = CURDATE()')
-    						->pluck('plan');
-
-    	if(count($plan) < 1){
-    		return "";
+    						->first();
+        //dd($plan);
+    	if(is_null($plan)){
+    		return null;
     	} 
-    	return $plan[0];
+    	return $plan;
     }
 
     function getPreviousPlans($user_id)

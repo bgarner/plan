@@ -46,9 +46,16 @@ h1{
 	float: left;
 	font-weight: normal;
 }
+h1 a.homelink:hover{
+	text-decoration: none;
+}
+
 h2{
 	font-weight: normal;
 	font-size: 1em;
+}
+h5{
+	padding: 5px 0 0 0; margin: 0;
 }
 .nav{
 	float: right;
@@ -87,6 +94,13 @@ textarea:focus {
 
 body.dark textarea:focus {
 	outline: 1px dotted #666;
+}
+
+body.planview div.plan{
+	white-space: pre-wrap;
+}
+body.planview .today{
+	padding-top: 5px !important;
 }
 
 form{clear: both;}
@@ -149,6 +163,9 @@ body.dark hr{
 	text-align: right;
 }
 
+.green{ color: #0c0 !important; }
+.red{ color: #c00 !important; }
+
 /* forms =====================================================================*/
 label{
 	font-size: .8em;
@@ -184,7 +201,6 @@ input[type="submit"]{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -209,15 +225,13 @@ input[type="submit"]{
 
 
 /* Modal Body */
-.modal-body {padding: 0px 16px;
+.modal-body {
+	padding: 0px 16px;
 }
-
-
 
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
   margin: auto;
   padding: 0;
   border: 1px solid #888;

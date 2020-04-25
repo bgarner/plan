@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/', 'HomeController@index' );
+Route::post('/v1/plan/new', 'PlanController@store');
+Route::post('/v1/plan/show', 'PlanController@show');
+Route::post('/v1/plan/update', 'PlanController@update');

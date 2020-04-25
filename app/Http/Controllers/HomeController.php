@@ -25,20 +25,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $dt = new Carbon();
         $today = $dt->shortEnglishDayOfWeek . "_" . $dt->isoFormat('YYYY_MM_DD') . "_plan";
 
         if (Auth::check()) {
-            $plan = new Plan;
-            $plan->todays = $plan->getTodaysPlan(Auth::user()->id);
-            $plan->prev_plans = $plan->getPreviousPlans(Auth::user()->id);
+            $p = new Plan;
+            $p->todays = $p->getTodaysPlan(Auth::user()->id);
+            $p->prev_plans = $p->getPreviousPlans(Auth::user()->id);
             
             return view('home')
+                ->with("user_id", Auth::user()->id)
                 ->with("today", $today)
-                ->with("plan", $plan->todays)
-                ->with("prev_plans", $plan->prev_plans);
+                ->with("plan", $p);
         }
         return view('home')
             ->with("today", $today);
