@@ -18,7 +18,7 @@ body.dark, body.dark *{
 }
 
 body.dark textarea {
-	color: #aaa;
+	color: #ddd;
 }
 
 fieldset{
@@ -101,7 +101,7 @@ textarea{
 	/*border-color: #111;*/
 	padding: 10px;
 	border: none;
-	color: #666;
+	color: #333;
 }
 
 .pastcol, .logincol{

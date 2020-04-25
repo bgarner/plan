@@ -15,6 +15,10 @@ class Plan extends Model
     	$plan = Plan::where('user_id', $user_id)
     						->whereRaw('Date(created_at) = CURDATE()')
     						->pluck('plan');
+
+    	if(count($plan) < 1){
+    		return "";
+    	} 
     	return $plan[0];
     }
 
@@ -28,6 +32,9 @@ class Plan extends Model
     					$d = Carbon::parse($p->created_at);
     					$p->plan_title = $d->shortEnglishDayOfWeek . "_" . $d->isoFormat('YYYY_MM_DD') . "_plan";
     				});
+    	if( count($plans) < 1){
+    		return;
+    	}
     	return $plans;
     }
 

@@ -34,6 +34,7 @@ class HomeController extends Controller
             $plan = new Plan;
             $plan->todays = $plan->getTodaysPlan(Auth::user()->id);
             $plan->prev_plans = $plan->getPreviousPlans(Auth::user()->id);
+            
             return view('home')
                 ->with("today", $today)
                 ->with("plan", $plan->todays)
