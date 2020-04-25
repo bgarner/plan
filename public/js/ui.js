@@ -1,3 +1,3 @@
-$( ".lightbulb" ).on( "click", function() {
+$( ".lightbulb-public" ).on( "click", function() {
 	$( "body" ).toggleClass( "dark" );
 });

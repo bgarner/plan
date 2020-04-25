@@ -4,7 +4,11 @@
     <title>Plan</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
 </head>
-<body class="light">
+@if($darkmode == 1)
+<body class="dark"> 
+@else
+<body class="light"> 
+@endif
 
 <div class="container">
 
@@ -19,7 +23,11 @@
         </a>
         <a href="#" class="openModal" id="openOptionsModal" modal="optionsModal">Options</a>
         <a href="#" class="openModal" id="openHelpModal" modal="helpModal">Help</a>
-        <a href="#" class="lightbulb"></a>
+        @if($darkmode == 1)
+        <a href="#" class="lightbulb" data-darkmode="0"></a>
+        @else
+        <a href="#" class="lightbulb" data-darkmode="1"></a>
+        @endif
     </div>
 
     <div style="display: block; clear: both;">
@@ -46,7 +54,7 @@
     
     <p class="save_status"><p>
     <hr />
-    <h2>Past</h2>
+    <h2>History (last 30 plans)</h2>
     <ul>
         @isset($plan->todays->plan)
         <li><a href="" id="todays_plan_link" class="load-plan" plan-date="{{ $today }}" plan-id="{{ $plan->todays->plan_id }}">{{ $today }}</a></li> 

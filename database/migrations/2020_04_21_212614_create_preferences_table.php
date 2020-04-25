@@ -16,7 +16,7 @@ class CreatePreferencesTable extends Migration
         Schema::create('preferences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->boolean('darkmode');
+            $table->boolean('darkmode')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@
                 Account
             @endif
         </a>
-        <a href="#" class="lightbulb"></a>
+        <a href="#" class="lightbulb-public"></a>
     </div>
 
     <form>

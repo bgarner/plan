@@ -22,3 +22,7 @@ Route::get('/', 'HomeController@index' );
 Route::post('/v1/plan/new', 'PlanController@store');
 Route::post('/v1/plan/show', 'PlanController@show');
 Route::post('/v1/plan/update', 'PlanController@update');
+
+Route::post('/v1/prefs/get', 'PreferencesController@get');
+Route::post('/v1/prefs/set', 'PreferencesController@set');
+

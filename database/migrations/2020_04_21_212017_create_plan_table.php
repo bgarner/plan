@@ -17,7 +17,7 @@ class CreatePlanTable extends Migration
             $table->id();
             $table->text('plan_id');
             $table->foreignId('user_id');
-            $table->longtext('plan');
+            $table->longtext('plan')->nullable();
             $table->timestamps();
         });
     }

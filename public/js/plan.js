@@ -7,10 +7,48 @@ window.onload = function() {
 };
 
 $('a.load-plan').click(function() {
+	$('a.load-plan').css("font-weight", "normal");
+	$(this).css("font-weight", "bold");
 	var plan_id = $(this).attr("plan-id");
 	var plan_date = $(this).attr("plan-date");
 	var plan = fetchPlan(plan_id, plan_date);
 });
+
+$( ".lightbulb" ).on( "click", function() {
+	var setdarkmode = $(this).data("darkmode");
+	var user_id = $('#current_user_id').val();
+	console.log("updating with these preferences, user: " + user_id + ", setting to: " + setdarkmode);
+
+	// swap the classes, reset the button to now do the opposite
+	if(setdarkmode == 1){
+		$( "body" ).addClass( "dark" );
+		$( ".lightbulb" ).data("darkmode", 0);
+	} else {
+		$( "body" ).removeClass( "dark" );	
+		$( ".lightbulb" ).data("darkmode", 1);
+	}	
+
+	updatePref(user_id, setdarkmode);
+});
+
+//darkmode switch
+const updatePref = (user_id, darkmode) => {
+	axios({
+	  method: 'post',
+	  url: '/api/v1/prefs/set',
+	  data: {
+	    user_id: user_id,
+	    darkmode: darkmode
+	  }
+	})
+	.then(function (response) {
+	  //set the button to now to the opposite
+		console.log("preference set to: " + darkmode);
+	})
+	.catch(function (error) {
+	  console.log(error);
+	})
+};
 
 const updateStatus = (status) => {
 	switch(status) {
@@ -106,10 +144,10 @@ setInterval(function(){
 		var plan = $('textarea#plan').val();
 		var user_id = $('#current_user_id').val();
 		
-		if (!plan) {
-			console.log("no plan yet...");
-			return;
-		}
+		// if (!plan) {
+		// 	console.log("no plan yet...");
+		// 	return;
+		// }
 
 		if( plan_id === "") {
 			savePlan(user_id, plan);
