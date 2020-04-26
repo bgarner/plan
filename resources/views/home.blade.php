@@ -14,13 +14,9 @@
 
     <h1>.plan</h1>
     <div class="nav">
-        <a href="#" class="openModal" id="openAccountModal" modal="accountModal">
-            @if (Auth::check())
-                {{ Auth::user()->email }}
-            @else 
-                Account
-            @endif
-        </a>
+        @if (Auth::check())
+        <a href="{{ url('/logout') }}">Logout</a>
+        @endif
         <a href="#" class="openModal" id="openOptionsModal" modal="optionsModal">Options</a>
         <a href="#" class="openModal" id="openHelpModal" modal="helpModal">Help</a>
         @if($darkmode == 1)
@@ -35,7 +31,7 @@
             <p style="float: left; font-weight: bold;" id="today">{{ $today }}</p> 
             <div style="float: right; font-size: .6em;">
                 <a href="#" class="openModal" id="openShareModal" modal="shareModal" title="Get a sharable link to this plan file">Share this plan</a><br />
-                <a href="#" title="Download this plan as a text file">Download this plan</a>
+               <!--  <a href="#" title="Download this plan as a text file">Download this plan</a> -->
             </div>
         </div>
         @isset($plan->todays->plan)

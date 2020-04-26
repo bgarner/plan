@@ -32,20 +32,23 @@ class HomeController extends Controller
         $today = $dt->shortEnglishDayOfWeek . "_" . $dt->isoFormat('YYYY_MM_DD') . "_plan";
 
         if (Auth::check()) {
-            $darkmode = Preference::where('user_id', Auth::user()->id)->pluck('darkmode');
-            
-            if(is_null($darkmode)) {
+            $darkmode = Preference::where('user_id', Auth::user()->id)->pluck('darkmode')->toArray();
+            if(count($darkmode) < 1) {
                 $darkmode = 0;
+            } else {
+                $darkmode = $darkmode[0];
             }
 
             $p = new Plan;
             $p->todays = $p->getTodaysPlan(Auth::user()->id);
             $p->prev_plans = $p->getPreviousPlans(Auth::user()->id);
-            // dd($darkmode);
+            if(is_null($p->prev_plans)){
+                $p->prev_plans = [];
+            }
             return view('home')
                 ->with("user_id", Auth::user()->id)
                 ->with("today", $today)
-                ->with("darkmode", $darkmode[0])
+                ->with("darkmode", $darkmode)
                 ->with("plan", $p);
         }
         return view('home')

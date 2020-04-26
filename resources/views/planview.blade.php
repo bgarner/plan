@@ -10,13 +10,7 @@
 
     <h1><a class="homelink" href="/">.plan</a></h1>
     <div class="nav">
-        <a href="#" class="openModal" id="openAccountModal" modal="accountModal">
-            @if (Auth::check())
-                {{ Auth::user()->email }}
-            @else 
-                Account
-            @endif
-        </a>
+        <a href="/login">Login / Register</a>
         <a href="#" class="lightbulb-public"></a>
     </div>
 

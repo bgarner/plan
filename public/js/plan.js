@@ -11,7 +11,7 @@ $('a#openShareModal').click(function() {
 	var link = window.location.protocol + "//" + window.location.host + "/" + link_id;
 	$("#sharelink").text(link);
 	$("#sharelink").attr("href", link)
-	
+
 });
 
 
@@ -26,7 +26,6 @@ $('a.load-plan').click(function() {
 $( ".lightbulb" ).on( "click", function() {
 	var setdarkmode = $(this).data("darkmode");
 	var user_id = $('#current_user_id').val();
-	console.log("updating with these preferences, user: " + user_id + ", setting to: " + setdarkmode);
 
 	// swap the classes, reset the button to now do the opposite
 	if(setdarkmode == 1){
