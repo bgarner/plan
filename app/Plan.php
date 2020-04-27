@@ -27,6 +27,7 @@ class Plan extends Model
     {
     	$plans = Plan::where('user_id', $user_id)
     				->where('created_at', '<', Carbon::today())
+                    ->orderBy('created_at', 'desc')
     				->get()
     				->take(30)
     				->each(function($p){

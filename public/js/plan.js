@@ -110,7 +110,8 @@ const savePlan = (user_id, plan) => {
 	.then(function (response) {
 //		console.log("new plan id: " + response.data);
 	  $("#current_plan_id").val(response.data);
-	  $("#todays_plan_link").attr("plan-id", response.data);
+	  console.log(response.data);
+	  $("a#todays_plan_link").attr("plan-id", response.data);
 	  updateStatus("saved");
 	})
 	.catch(function (error) {
@@ -133,7 +134,7 @@ const updatePlan = (plan_id, plan) => {
 	  }
 	})
 	.then(function (response) {
-	  // console.log(response);
+	  $("a#todays_plan_link").attr("plan-id", response.data.plan_id);
 	  updateStatus("saved");
 	})
 	.catch(function (error) {

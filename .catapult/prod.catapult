@@ -1,0 +1,45 @@
+#################################################
+
+# Environment-specific script
+
+# sourced by deploy.sh
+
+#################################################
+
+APP_NAME=Planfile.xyz
+LARAVEL_VER=7.2
+DEPLOY_TYPE=prod
+DEPLOY_SERVER=(planfile.xyz)
+DEPLOY_HOST=planfile.xyz
+DEPLOY_PATH=/var/www/html
+DEPLOY_USER=root
+
+#git stuff
+REMOTENAME=origin
+BRANCH=master
+TAG=null
+
+#db stuff
+DATABASE=plan
+MYSQL_HOST=127.0.0.1
+MYSQL_USER=root
+MYSQL_PASS=root
+MIGRATION_REFRESH=false
+SEEDER=false
+#sql file must be in 'sql' folder
+EXEC_SQL=false
+EXEC_SQL_FILE=install.sql
+
+APACHE_USER=www-data
+APACHE_RESTART="service apache2 restart"
+APACHE_STATUS="ps -eo comm,etime,user | grep apache2"
+
+#testing stuff
+CURL_TEST=false
+PING_TEST=false
+TEST_URLS=()
+
+#cleanup
+PERFORM_CLEANUP=false
+CLEANUP=("notes.txt" "whiteboard" "__design" "readme.md" "public/thumb" "public/wireframes")
+CLEANUP_VERBOSE=false
