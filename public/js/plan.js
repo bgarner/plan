@@ -162,6 +162,6 @@ setInterval(function(){
 			updatePlan(plan_id, plan)
 		}
 
-}, 3000);
+}, 5000);
 
 
